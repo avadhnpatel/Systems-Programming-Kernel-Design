@@ -1,0 +1,89 @@
+CHECKPOINT 1:
+
+BUG 1:
+Issue: keyboard isn't initialized correctly, only will print out when we call our handle keyboard interuput manually, also doesn't print the correct keyboard values.
+Solution: fixed the type that was being printed in our printf, also added conditional to parse out the released key values when typing.
+
+BUG 2:
+Issue: Implicit declaration of function error
+Solution: Had to move the function declarations to the top of the functions in which they were used
+
+BUG 3: 
+Issue: expected specifier-qualifier-list before u32int
+Solution: Missing include "types.h"
+
+CHECKPOINT 2:
+
+BUG 4:
+Issue: backspacing after printing a new line would return to the far left of the console instead of where the string in the previous line ended.
+Solution: implemented an array that kept track of where the end of the string is, based on the y screen value, everytime enter is pressed. When backspace is pressed it returns to this location instead.
+
+BUG 5:
+Issue: After vertical scrolling, our back spacing after a new line would no longer return to the correct line.
+Solution: implemented an enter offset, that would iterate evertyime vertical scrolling would happen, causing the new line array to be correctly adjusted for the new locations of each line.
+
+BUG 6:
+Issue: File names were not being retrieved from dir entries but all other information such as num iNodes and num dir entries work.
+Solution: Change name of file name in dir entry struct to a different name and somehow worked.
+
+BUG 7:
+Issue: File system test of reading frame0.txt file kept crashing constantly without running test
+Solution: Problem with pointers of fname and offset, had to remove pointer and just use 0 as offset
+
+BUG 8:
+Issue: RTC kept getting stuck in rtc_read() while(interrupt_occurred == 0) because rtc_handler wasnt getting called periodically.
+Solution: PIC irq_num calculation was wrong. Was originally (irq_num << 1) should be (1 << irq_num).
+
+CHECKPOINT 3:
+
+BUG 9:
+Issue: Executable check was not working in execute system call
+Solution: Problem reading in file correctly
+
+BUG 10:
+Issue: Page fault in iret
+Solution: Had to step through and find null pointer
+
+BUG 11:
+Issue: Scrolling with terminal write
+Solution: Had to implement scrolling in putc to check dimensions
+
+BUG 12:
+Issue: ls not showing all and not correct and showing null
+Solution: Had to check read directory and ensure reading correct bytes
+
+CHECKPOINT 4:
+
+BUG 13:
+Issue: Page Fault in halt ret
+Solution: Problem with pcb and parent IDs, did not have right EIP val
+
+BUG 14:
+Issue: Page Fault in multiple shells
+Solution: Had to keep track of shell count and properly increment/decrement it and process count
+
+BUG 15:
+Issue: Page Fault in cat
+Solution: Read file was not properly manipulating fd array and pcb values as was not by pointer
+
+CHECKPOINT 5:
+
+BUG 16:
+Issue: Problem in grep causing page fault error
+Solution: problem in read_data() where for loop terminates had incorrect value
+
+BUG 17:
+Issue: ls not printing out .
+Solution: Had to post increment directory index
+
+BUG 18:
+Issue: Not printing to correct terminals in video memory
+Solution: Had to execute three shells first before processing and saving terminal words
+
+BUG 19:
+Issue: Setting up virtual address with paging for screens
+Solution: Ensuring virtual addresses are correct for all three terminals
+
+BUG 20:
+Issue: Buffer overflow in shell causing page fault
+Solution: Had to limit only 32 characters using indexing
