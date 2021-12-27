@@ -4,16 +4,10 @@
 
 • Tested functionality through creating unit tests for individual components of the system
 
-• Features Include:
-
-  • Memory paging
-
-  • i8259 PIC interrupt handling
-  
-  • Exception handling
-  
-  • Keyboard input buffer
-  
-  • In memory read-only filesystem
-  
-  •Round-robin scheduling based on Programmable Interrupt Timer
+- Features Include:
+  - Memory paging
+  - i8259 PIC interrupt handling
+  - Exception handling
+  - Keyboard input buffer
+  - In memory read-only filesystem
+  - Round-robin scheduling based on Programmable Interrupt Timer
