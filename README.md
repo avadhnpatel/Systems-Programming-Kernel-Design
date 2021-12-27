@@ -4,7 +4,7 @@
 
 • Tested functionality through creating unit tests for individual components of the system
 
-- Features Include:
+-Features Include:
   - Memory paging
   - i8259 PIC interrupt handling
   - Exception handling
